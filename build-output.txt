@@ -1,0 +1,59 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< May2024POMSeries:May2024POMSeries >------------------
+[INFO] Building May2024POMSeries 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ May2024POMSeries ---
+[INFO] Deleting C:\jakpython\framework\may2025\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ May2024POMSeries ---
+[INFO] skip non existing resourceDirectory C:\jakpython\framework\may2025\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ May2024POMSeries ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 16 source files to C:\jakpython\framework\may2025\target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ May2024POMSeries ---
+[INFO] Copying 10 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ May2024POMSeries ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to C:\jakpython\framework\may2025\target\test-classes
+[INFO] 
+[INFO] --- surefire:2.20:test (default-test) @ May2024POMSeries ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+...
+... TestNG 7.7.0 by Cédric Beust (cedric@beust.com)
+...
+
+The browser name is : chrome
+Element [By.linkText: Forgotten Password] is displayed: true
+login page title is: Account Login
+the URL is: https://naveenautomationlabs.com/opencart/index.php?route=account/login
+Account page title is: My Account
+Element [By.cssSelector: img.img-responsive] is displayed: true
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.962 s - in TestSuite
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ May2024POMSeries ---
+[INFO] Building jar: C:\jakpython\framework\may2025\target\May2024POMSeries-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- install:3.1.2:install (default-install) @ May2024POMSeries ---
+[INFO] Installing C:\jakpython\framework\may2025\pom.xml to C:\Users\Jahangir Ali Khan\.m2\repository\May2024POMSeries\May2024POMSeries\0.0.1-SNAPSHOT\May2024POMSeries-0.0.1-SNAPSHOT.pom
+[INFO] Installing C:\jakpython\framework\may2025\target\May2024POMSeries-0.0.1-SNAPSHOT.jar to C:\Users\Jahangir Ali Khan\.m2\repository\May2024POMSeries\May2024POMSeries\0.0.1-SNAPSHOT\May2024POMSeries-0.0.1-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.017 s
+[INFO] Finished at: 2025-05-25T17:33:15+01:00
+[INFO] ------------------------------------------------------------------------
