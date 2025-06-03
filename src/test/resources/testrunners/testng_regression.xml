@@ -23,7 +23,7 @@
 
 	<test
 		name="Accounts Page Test">
-		<parameter name="browser" value="firefox" />
+		<parameter name="browser" value="chrome" />
 		<parameter name="browserversion" value="113.0" />
 		<parameter name="testname" value="Accounts Page Test" />
 
