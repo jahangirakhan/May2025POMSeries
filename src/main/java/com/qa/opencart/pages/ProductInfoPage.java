@@ -29,7 +29,7 @@ public class ProductInfoPage {
 	
 	public String getProductHeader()
 	{
-		String productHeaderValue=eleUtil.waitForElementPresence(productHeader, AppConstants.Short_Time_OUT).getText();
+		String productHeaderValue=eleUtil.waitForElementPresence(productHeader, AppConstants.Medium_Time_OUT).getText();
 		
 	System.out.println("Product Header ====> " + productHeaderValue);
 	return productHeaderValue;
@@ -76,7 +76,7 @@ public class ProductInfoPage {
 	
 	public int getProductImagesCount() {
 		int imagesCount = 
-				eleUtil.waitForElementsPresence(prouctImage, AppConstants.Short_Time_OUT).size();
+				eleUtil.waitForElementsPresence(prouctImage, AppConstants.Medium_Time_OUT).size();
 		System.out.println("Images count ====> " + imagesCount);
 		return imagesCount;
 	}
