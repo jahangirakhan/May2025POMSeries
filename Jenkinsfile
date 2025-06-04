@@ -15,20 +15,7 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            steps {
-                dir('app') {
-                    git branch: "${params.BRANCH}", url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
-                    bat 'mvn clean install'
-                }
-            }
-            post {
-                success {
-                    junit 'app/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts artifacts: 'app/target/*.jar', fingerprint: true
-                }
-            }
-        }
+       
 
         stage('Deploy to QA') {
             when {
