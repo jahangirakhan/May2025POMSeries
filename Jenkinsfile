@@ -17,7 +17,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Checkout main app repo
                 dir('app') {
                     git branch: "${params.BRANCH}", url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
                     bat 'mvn clean install'
@@ -25,7 +24,6 @@ pipeline {
             }
             post {
                 success {
-                    // Archive test results and artifacts from app build
                     junit 'app/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts artifacts: 'app/target/*.jar', fingerprint: true
                 }
@@ -38,13 +36,11 @@ pipeline {
             }
             steps {
                 echo "Deploying to QA environment..."
-                // Add your deployment script/commands here
             }
         }
 
         stage('Checkout Test Repo') {
             steps {
-                // Checkout the UI automation test repo separately
                 dir('ui-tests') {
                     git "${env.TEST_REPO}"
                 }
@@ -102,7 +98,6 @@ pipeline {
             }
             steps {
                 echo "Deploying to Stage environment..."
-                // Add your deployment script/commands here
             }
         }
 
@@ -113,10 +108,50 @@ pipeline {
             steps {
                 dir('ui-tests') {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                        bat 'mvn clean test -Dsurefire.suiteXmlFiles=src\\test\\resources\\testrunners\\testng_sanity.xml -Denv=${params.ENV}'
+                        bat "mvn clean test -Dsurefire.suiteXmlFiles=src\\test\\resources\\testrunners\\testng_sanity.xml -Denv=${params.ENV}"
                     }
                 }
             }
         }
 
         stage('Publish Sanity Extent Report') {
+            when {
+                expression { params.ENV == 'stage' || params.ENV == 'prod' }
+            }
+            steps {
+                dir('ui-tests') {
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll: true,
+                        reportDir: 'reports',
+                        reportFiles: 'TestExecutionReport.html',
+                        reportName: 'HTML Sanity Extent Report',
+                        reportTitles: ''
+                    ])
+                }
+            }
+        }
+
+        stage('Deploy to PROD') {
+            when {
+                expression { params.ENV == 'prod' }
+            }
+            steps {
+                echo "Deploying to PROD environment..."
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline finished.'
+        }
+        failure {
+            echo 'Pipeline failed. Please check the logs!'
+        }
+        success {
+            echo 'Pipeline succeeded!'
+        }
+    }
+}
