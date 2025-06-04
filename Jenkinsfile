@@ -28,7 +28,7 @@ pipeline {
         stage('Regression UI Automation Tests') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git url: 'https://github.com/jahangirakhan/May2025POMSeries', branch: 'main'
+                   git url: 'https://github.com/jahangirakhan/May2025POMSeries', branch: 'master'
                     bat "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_regression.xml"
                 }
             }
