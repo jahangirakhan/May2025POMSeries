@@ -1,8 +1,16 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Sanity Suite">
-  <test name="Sanity Tests">
-    <classes>
-      <class name="com.example.tests.LoginTest"/>
-    </classes>
-  </test>
-</suite>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Opencart App Test Regression Suite" thread-count="3"
+	parallel="tests" verbose="4">
+
+
+	<test name="Login Page Test">
+		<classes>
+			<class name="com.qa.opencart.tests.LoginPageTest" />
+		</classes>
+	</test>
+
+
+
+</suite>	
